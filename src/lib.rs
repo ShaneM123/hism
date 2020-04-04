@@ -1,3 +1,4 @@
+/*
 extern crate hyper;
 
 mod utils;
@@ -29,7 +30,7 @@ pub fn request_ip()-> String {
 
 //type Result<T> = std::result::Result<T, Box<dyn std::error::Error + Send + Sync>>;
 
-/*#[tokio::main]
+*//*#[tokio::main]
 async fn main() -> Result<()> {
 // http requests
   //  let client = Client::new();
@@ -37,8 +38,9 @@ async fn main() -> Result<()> {
     let resp = client.get(uri).await?;
 
 Ok(())
-}*/
+}*//*
 
+*/
 
 
 
