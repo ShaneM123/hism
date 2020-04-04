@@ -1,5 +1,29 @@
 
 
+window.addEventListener("load", function () {
+
+    function  sendData() {
+        const XHR = new XMLHttpRequest();
+        const FD = new FormData( form );
+
+        XHR.addEventListener("load", function(event){
+            alert( event.target.responseText);
+        });
+        XHR.addEventListener("error", function ( event ){
+            alert('Oops! something went wrong.' );
+        });
+        XHR.open("POST", "http://localhost:8998/users");
+        XHR.send( FD );
+    }
+    let form = document.getElementById( "theForm" );
+    form.addEventListener( "submit", function ( event ) {
+        event.preventDefault();
+
+        sendData();
+
+    });
+});
+
 
 
 

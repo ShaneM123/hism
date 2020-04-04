@@ -129,17 +129,14 @@
   </head>
   <body bgcolor=white>
 
-    <form class="modal-content animate" action="/homepage.html" method="post" >
+    <form class="modal-content animate" id="theForm" >
       <div class="imgcontainer">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <img src="img_avatar2.png" alt="Avatar" class="avatar">
 
       <div class="container">
-        <label><b>Username</b>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-        </label>
-        <label><b>Password</b>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="uname"><b>Username</b>
+        <input type="text" placeholder="Add a User " id="uname" name="uname" required>
         </label>
         <button type="submit">Login</button>
         <label>
