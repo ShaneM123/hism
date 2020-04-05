@@ -1,24 +1,59 @@
+/*
+*@param {Event}
+*@return {void}
+*/
+const formToJSON = elements => [].reduce.call(elements, (data, element) => {
+    data[element.name] = element.value;
+    return data;
+}, {});
 
+const handleFormSubmit = event => {
+    event.preventDefault();
+    const data = formToJSON(form.elements);
 
+    const dataContainer = document.getElementsByClassName('results__display')[0];
 
-
-
-
-// create JSON
-const json = {
-    username: '',
-    password: ''
+    dataContainer.textContent = JSON.stringify(data, null, " ");
 };
-//request options
-const options = {
-    method: 'POST',
-    body: JSON.stringify(json),
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}
-//send post request
-fetch('/login', options)
+
+const form = document.getElementsByClassName('contact-form')[0];
+form.addEventListener('submit', handleFormSubmit);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 
 window.addEventListener("load", function () {
@@ -37,6 +72,7 @@ window.addEventListener("load", function () {
         XHR.send( FD );
     }
     let form = document.getElementById( "theForm" );
+
     form.addEventListener( "submit", function ( event ) {
         event.preventDefault();
 
@@ -44,9 +80,25 @@ window.addEventListener("load", function () {
 
     });
 });
-
-
 */
+
+
+// create JSON
+/*const json = {
+    username: '',
+    password: ''
+};
+//request options
+const options = {
+    method: 'POST',
+    body: JSON.stringify(json),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+//send post request
+fetch('/login', options)*/
+
 
 
 
