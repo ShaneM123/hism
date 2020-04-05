@@ -1,5 +1,26 @@
 
 
+
+
+
+
+// create JSON
+const json = {
+    username: '',
+    password: ''
+};
+//request options
+const options = {
+    method: 'POST',
+    body: JSON.stringify(json),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+//send post request
+fetch('/login', options)
+/*
+
 window.addEventListener("load", function () {
 
     function  sendData() {
@@ -25,6 +46,7 @@ window.addEventListener("load", function () {
 });
 
 
+*/
 
 
 

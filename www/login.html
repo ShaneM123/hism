@@ -5,6 +5,7 @@
     <title>Login Page</title>
     <style>
       body {font-family: Arial, Helvetica, sans-serif; color: #61c061;
+        background: url("../../images/railroad.jpg");
       }
 
       /* Full-width input fields */
@@ -13,7 +14,7 @@
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
-        border: 1px solid #646b68;
+        border: 1px solid #000000;
         box-sizing: border-box;
       }
 
@@ -79,7 +80,7 @@
       .modal-content {
         background-color: #313131;
         margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #ffffff;
+        border: 1px solid #000000;
         width: 50%; /* Could be more or less, depending on screen size */
       }
 
@@ -88,7 +89,7 @@
         position: absolute;
         right: 25px;
         top: 0;
-        color: #000;
+        color: #6c6c6c;
         font-size: 35px;
         font-weight: bold;
       }
@@ -131,7 +132,7 @@
 
     <form class="modal-content animate" id="theForm" >
       <div class="imgcontainer">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <span onclick=window.open("index.html").style.display='none' class="close" title="Close Modal">&times;</span>
         <img src="img_avatar2.png" alt="Avatar" class="avatar">
 
       <div class="container">

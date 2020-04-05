@@ -1674,6 +1674,7 @@ input, select, textarea {
 		.button.style1 {
 			background: #e97770 url("images/overlay.png");
 			color: #fff;
+			margin-bottom: 1px;
 		}
 
 			input[type="button"].style1:hover,
@@ -1910,6 +1911,7 @@ input, select, textarea {
 
 		.icon.solid:before {
 			font-weight: 900;
+			margin: .5px;
 		}
 
 		.icon.brands:before {
@@ -2060,10 +2062,11 @@ input, select, textarea {
 		-ms-justify-content: center;
 		justify-content: center;
 		position: relative;
-		height: 24em;
-		background: url("../../images/banner.jpg") center center;
+		height: 26em;
+		background: url("../../images/railroad.jpg") center center;
+		background-blend-mode: darken;
+
 		background-size: cover;
-		padding: 0;
 	}
 
 		#header:before {
