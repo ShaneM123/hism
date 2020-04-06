@@ -1,5 +1,103 @@
+/*
+*@param {Event}
+*@return {void}
+*/
+const formToJSON = elements => [].reduce.call(elements, (data, element) => {
+    data[element.name] = element.value;
+    return data;
+}, {});
+
+const handleFormSubmit = event => {
+    event.preventDefault();
+    const data = formToJSON(form.elements);
+
+    const dataContainer = document.getElementsByClassName('results__display')[0];
+
+    dataContainer.textContent = JSON.stringify(data, null, " ");
+};
+
+const form = document.getElementsByClassName('contact-form')[0];
+form.addEventListener('submit', handleFormSubmit);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+window.addEventListener("load", function () {
+
+    function  sendData() {
+        const XHR = new XMLHttpRequest();
+        const FD = new FormData( form );
+
+        XHR.addEventListener("load", function(event){
+            alert( event.target.responseText);
+        });
+        XHR.addEventListener("error", function ( event ){
+            alert('Oops! something went wrong.' );
+        });
+        XHR.open("POST", "http://localhost:8998/users");
+        XHR.send( FD );
+    }
+    let form = document.getElementById( "theForm" );
+
+    form.addEventListener( "submit", function ( event ) {
+        event.preventDefault();
+
+        sendData();
+
+    });
+});
+*/
+
+
+// create JSON
+/*const json = {
+    username: '',
+    password: ''
+};
+//request options
+const options = {
+    method: 'POST',
+    body: JSON.stringify(json),
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+//send post request
+fetch('/login', options)*/
 
 
 
