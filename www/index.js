@@ -23,15 +23,36 @@ const formToJSON = elements => [].reduce.call(elements, (data, element) => {
 
 const handleFormSubmit = event => {
     event.preventDefault();
-    const data = formToJSON(form.elements);
 
     const dataContainer = document.getElementsByClassName('results__display')[0];
+    dataContainer.textContent = body;
 
-    dataContainer.textContent = JSON.stringify(data, null, " ");
+    fetch('http://localhost:8998/users', options)
+        .then(res => res.json())
+        .then(res => console.log(res));
 };
 
 const form = document.getElementsByClassName('modal-content animate')[0];
+
+const data = formToJSON(form.elements);
+const body = JSON.stringify(data, null, " ");
+
+
 form.addEventListener('submit', handleFormSubmit);
+
+const options = {
+    method: 'POST',
+    body: body,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+
+
+
+
+
+
 /**
  * Checks that an element has a non-empty `name` and `value` property.
  * @param  {Element} element  the element to check
