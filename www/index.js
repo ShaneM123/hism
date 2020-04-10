@@ -30,7 +30,7 @@ const handleFormSubmit = event => {
     dataContainer.textContent = JSON.stringify(data, null, " ");
 };
 
-const form = document.getElementsByClassName('contact-form')[0];
+const form = document.getElementsByClassName('modal-content animate')[0];
 form.addEventListener('submit', handleFormSubmit);
 /**
  * Checks that an element has a non-empty `name` and `value` property.
