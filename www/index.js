@@ -2,43 +2,89 @@
 *@param {Event}
 *@return {void}
 */
-const formToJSON = elements => [].reduce.call(elements, (data, element) => {
-    // Make sure the element has the required properties.
-    if (isValidElement(element) && isValidValue(element)) {
 
-        /*
-         * Some fields allow for more than one value, so we need to check if this
-         * is one of those fields and, if so, store the values as an array.
-         */
-        if (isCheckbox(element)){
-            data[element.name] = (data[element.name] || []).concat(element.value);
-        } else if(isMultiSelect(element)) {
-            data[element.name] = getSelectValues(element);
-        } else {
-        data[element.name] = element.value;
-    }
-    }
-    return data;
-}, {});
+const form = document.getElementsByClassName('modal-content animate')[0];
+
+
 
 const handleFormSubmit = event => {
     event.preventDefault();
+    /**
+     * Checks that an element has a non-empty `name` and `value` property.
+     * @param  {Element} element  the element to check
+     * @return {Bool}             true if the element is an input, false if not
+     */
+    const isValidElement = element => { return element.name && element.value; };
+
+
+
+    const formToJSON = elements => [].reduce.call(elements, (data, element) => {
+        // Make sure the element has the required properties.
+        if (isValidElement(element) && isValidValue(element)) {
+
+            /*
+             * Some fields allow for more than one value, so we need to check if this
+             * is one of those fields and, if so, store the values as an array.
+             */
+            if (isCheckbox(element)){
+                data[element.name] = (data[element.name] || []).concat(element.value);
+            } else if(isMultiSelect(element)) {
+                data[element.name] = getSelectValues(element);
+            } else {
+                data[element.name] = element.value;
+            }
+        }
+        return data;
+    }, {});
     const data = formToJSON(form.elements);
+    const body = JSON.stringify(data, null, " ");
+    console.log(body);
+
+    const options = {
+        method: 'POST',
+        body: body,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+/*
+   function  sendData() {
+        const XHR = new XMLHttpRequest();
+
+        XHR.addEventListener("load", function(event){
+            alert( event.target.responseText);
+        });
+        XHR.addEventListener("error", function ( event ){
+            alert('Oops! something went wrong.' );
+        });
+        XHR.open("POST", "http://localhost:8998/users");
+        XHR.setRequestHeader('Content-Type','application/json')
+        XHR.send( options );
+    }
+
+        sendData();
+*/
+
+    fetch('http://localhost:8998/users', options)
+        .then(res => res.json())
+        .then(res => console.log(res));
 
     const dataContainer = document.getElementsByClassName('results__display')[0];
+    dataContainer.textContent = body;
 
-    dataContainer.textContent = JSON.stringify(data, null, " ");
 };
 
-const form = document.getElementsByClassName('modal-content animate')[0];
-form.addEventListener('submit', handleFormSubmit);
-/**
- * Checks that an element has a non-empty `name` and `value` property.
- * @param  {Element} element  the element to check
- * @return {Bool}             true if the element is an input, false if not
- */
 
-const isValidElement = element => { return element.name && element.value; };
+form.addEventListener('submit', handleFormSubmit);
+
+
+
+
+
+
+
+
 
 /**
  * Checks if an element’s value can be saved (e.g. not an unselected checkbox).
