@@ -14,7 +14,7 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="logStyle.css" />
-    <title>Login to HISM</title>
+    <title>Sign Up to HISM</title>
   </head>
   <body>
     <header>
@@ -42,13 +42,13 @@
             </li>
           </ul>
           <ul class="navbar-nav text-right">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
+            <li class="nav-item">
+              <a class="nav-link" href="login.html"
                 ><i class="fa fa-user"></i> Login
                 <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="signup.html"
                 ><i class="fa fa-user-plus"></i> Sign Up</a
               >
@@ -59,9 +59,8 @@
     </header>
     <div class="container mt-5">
       <div class="signForm col-lg-8">
-        <!-- Where do we need to send the form data? -->
         <form action="index.html" method="POST">
-          <h1 class="text-center">Login to HISM</h1>
+          <h1 class="text-center">Sign Up to HISM</h1>
           <hr />
           <div class="form-group mt-3">
             <label for="exampleInputuserID">User ID</label>
@@ -69,7 +68,17 @@
               type="text"
               class="form-control"
               id="exampleInputuserID"
-              aria-describedby="userIDHelp"
+              aria-describedby="useRIDHelp"
+              required
+            />
+          </div>
+          <div class="form-group mt-3">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
               required
             />
           </div>
@@ -84,7 +93,27 @@
               title="Must be 8-20 characters"
             />
           </div>
-
+          <div class="form-group">
+            <label for="exampleInputPassword1">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              required
+              pattern=".{8,20}"
+              title="Must be 8-20 characters"
+            />
+          </div>
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label" for="exampleCheck1"
+              >I agree to Terms and Conditions</label
+            >
+          </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
