@@ -10,4 +10,5 @@
 
   <strong>hism was built with the help of wasm-pack-template. A template for kick starting a Rust and WebAssembly project using <a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a>.</strong>
 
+<h2>UI design on <a href="https://www.figma.com/file/8aaVeHBygqL4F2Me0130OP/HISM-Login-SignUp?node-id=0%3A1">Figma</a>
 </div>
